@@ -7,7 +7,7 @@
         "path": "/v2/actions",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -15,7 +15,7 @@
         "path": "/v2/actions/$ACTION_ID",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -28,7 +28,7 @@
         "path": "/v2/domains",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -36,7 +36,7 @@
         "path": "/v2/domains",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "name",
             "type": "string",
@@ -55,7 +55,7 @@
         "path": "/v2/domains/$DOMAIN_NAME",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -63,7 +63,7 @@
         "path": "/v2/domains/$DOMAIN_NAME",
         "method": "DELETE",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -76,7 +76,7 @@
         "path": "/v2/domains/$DOMAIN_NAME/records",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -84,7 +84,7 @@
         "path": "/v2/domains/$DOMAIN_NAME/records",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -123,7 +123,7 @@
         "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
         "method": "GET",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -131,7 +131,7 @@
         "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
         "method": "PUT",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -170,7 +170,7 @@
         "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
         "method": "DELETE",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -183,7 +183,7 @@
         "path": "/v2/droplets",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "name",
             "type": "String",
@@ -237,7 +237,7 @@
         "path": "/v2/droplets",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "names",
             "type": "Array",
@@ -291,7 +291,7 @@
         "path": "/v2/droplets/$DROPLET_ID",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -299,7 +299,7 @@
         "path": "/v2/droplets",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -307,7 +307,7 @@
         "path": "/v2/droplets/$DROPLET_ID/kernels",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -315,7 +315,7 @@
         "path": "/v2/droplets/$DROPLET_ID/snapshots",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -323,7 +323,7 @@
         "path": "/v2/droplets/$DROPLET_ID/backups",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -331,7 +331,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -339,7 +339,7 @@
         "path": "/v2/droplets/$DROPLET_ID",
         "method": "DELETE",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -347,7 +347,7 @@
         "path": "/v2/droplets/:id/neighbors",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -355,7 +355,7 @@
         "path": "/v2/reports/droplet_neighbors",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -363,7 +363,7 @@
         "path": "/v2/droplet_upgrades",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -376,7 +376,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -392,7 +392,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -408,7 +408,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -424,7 +424,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -440,7 +440,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -456,7 +456,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -472,7 +472,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -488,7 +488,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -509,7 +509,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -525,7 +525,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -551,7 +551,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -572,7 +572,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -593,7 +593,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -614,7 +614,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -630,7 +630,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -646,7 +646,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -667,7 +667,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "upgrade",
             "type": "string",
@@ -683,7 +683,7 @@
         "path": "/v2/droplets/$DROPLET_ID/actions/$ACTION_ID",
         "method": "GET",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -696,7 +696,7 @@
         "path": "/v2/images",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -704,7 +704,7 @@
         "path": "/v2/images/$IMAGE_ID",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -712,7 +712,7 @@
         "path": "/v2/images/$IMAGE_SLUG",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -720,7 +720,7 @@
         "path": "/v2/images/$IMAGE_ID/actions",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -728,7 +728,7 @@
         "path": "/v2/images/$IMAGE_ID",
         "method": "PUT",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "name",
             "type": "string",
@@ -742,7 +742,7 @@
         "path": "/v2/images/$IMAGE_ID",
         "method": "DELETE",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -755,7 +755,7 @@
         "path": "/v2/images/$IMAGE_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -776,7 +776,7 @@
         "path": "/v2/images/$IMAGE_ID/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "type",
             "type": "string",
@@ -792,7 +792,7 @@
         "path": "/v2/images/$IMAGE_ID/actions/$IMAGE_ACTION_ID",
         "method": "GET",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -805,7 +805,7 @@
         "path": "/v2/account/keys",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -813,7 +813,7 @@
         "path": "/v2/account/keys",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "name",
             "type": "string",
@@ -832,7 +832,7 @@
         "path": "/v2/account/keys/$KEY_ID",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -840,7 +840,7 @@
         "path": "/v2/account/keys/$SSH_KEY_ID",
         "method": "PUT",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "name",
             "type": "string",
@@ -854,7 +854,7 @@
         "path": "/v2/account/keys/$KEY_ID",
         "method": "DELETE",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -867,7 +867,7 @@
         "path": "/v2/regions",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -880,7 +880,7 @@
         "path": "/v2/sizes",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -893,7 +893,7 @@
         "path": "/v2/floating_ips",
         "method": "GET",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -901,7 +901,7 @@
         "path": "/v2/floating_ips",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "droplet_id",
             "type": "int",
@@ -915,7 +915,7 @@
         "path": "/v2/floating_ips",
         "method": "POST",
         "requiredResourceIdCount": 0,
-        "requiredProperties": [
+        "properties": [
           {
             "name": "region",
             "type": "string",
@@ -929,7 +929,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP_ADDR",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -937,7 +937,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP_ADDR",
         "method": "DELETE",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]
@@ -950,7 +950,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP_ADDR/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -958,7 +958,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP_ADDR/actions",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -966,7 +966,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP/actions",
         "method": "GET",
         "requiredResourceIdCount": 1,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       },
       {
@@ -974,7 +974,7 @@
         "path": "/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID",
         "method": "GET",
         "requiredResourceIdCount": 2,
-        "requiredProperties": [],
+        "properties": [],
         "staticProperties": {}
       }
     ]

@@ -4,48 +4,66 @@
 var cheerio = require('cheerio');
 var fs = require('fs');
 var camel = require('to-camel-case');
+
 var $ = cheerio.load(fs.readFileSync('./12-15-2016.html', 'binary'));
 
-var mdName = __dirname + '/../methods.md'
-
+// also write documentation at this time
+var mdName = __dirname + '/../digital-ocean-api-v2/methods.md'
 fs.writeFileSync(mdName, '', 'binary');
 
-var items = [];
-$("nav.sidebar > ul > li").each(function(i, el) {
-  var obj = {};
+var categoryArray = [];
+$("nav.sidebar > ul > li").each(function(i, el) { // for each category in the sidebar
+  var categoryObj = {};
   var objName = $(el).find("> a").first().text();
-  obj.name = camel(objName).replace(/Ip/g, 'IP');
-  if (obj.name === "introduction") {
+
+  // convert category name to camel case, but make IP all caps
+  categoryObj.name = camel(objName)
+    .replace(/Ip/g, 'IP');
+
+  // skip introduction
+  if (categoryObj.name === "introduction") {
     return;
   }
-  if (obj.name === "account") {
-    // not parseable here
+
+  // this item isn't parsable :(
+  if (categoryObj.name === "account") {
     return;
   }
-  fs.appendFileSync(mdName, "\n###" + obj.name + "\n", 'binary');
-  obj.items = [];
-  $(el).find('> ul > li > a').each(function(i, vel) {
+
+  fs.appendFileSync(mdName, "\n###" + categoryObj.name + "\n", 'binary');
+  categoryObj.items = [];
+
+  $(el).find('> ul > li > a').each(function(i, vel) { // for each action in the category
     var href = $(vel).attr('href');
     var linkUrl = "https://developers.digitalocean.com/documentation/v2" + href;
-    var $thing = $(href)
-    var name = $thing.find('h3').first().text();
-    var path = $thing.find('p').first().find('code').first().text();
-    var methodExec = /(GET|DELETE|PUT|POST|HEAD)/.exec($thing.find('p').first().text());
+
+
+    // grab the main content for the action
+    var $actionEl = $(href)
+    var name = $actionEl.find('h3').first().text();
+    var path = $actionEl.find('p').first().find('code').first().text();
+    var methodExec = /(GET|DELETE|PUT|POST|HEAD)/.exec($actionEl.find('p').first().text());
     if (!methodExec) {
       return;
     }
     var method = methodExec[1];
     var itemObj = {
-      name: camel(name.replace(/(a |an |the )/ig, '')).replace(/Ip/g, 'IP'),
+      name: camel(name
+              .replace(/(a |an |the )/ig, '') // strip out a / an / the
+            ).replace(/Ip/g, 'IP'), // again, IP
       path: path,
       method: method
     };
-    if (itemObj.name === "deleteFloatingIPs") {
+    if (itemObj.name === "deleteFloatingIPs") { // one-off for this typo
       itemObj.name = "deleteFloatingIP";
     }
     fs.appendFileSync(mdName, "- [" + itemObj.name + "](" + linkUrl + ")\n", 'binary');
+
+    // determine how many id arguments are needed
     itemObj.requiredResourceIdCount = itemObj.path.split("$").length - 1;
-    var signature = "api." + obj.name + "." + itemObj.name + "("
+
+    // generate signature for documentation
+    var signature = "api." + categoryObj.name + "." + itemObj.name + "("
     var signatureArgs = "";
     if (itemObj.requiredResourceIdCount > 0) {
       signatureArgs = itemObj.path.split('/').reduce(function(arr, item) {
@@ -57,11 +75,16 @@ $("nav.sidebar > ul > li").each(function(i, el) {
       signature += signatureArgs;
     }
     signature += "options)";
+    if (itemObj.method === "GET" || itemObj.method === "DELETE") {
+      signature = signature.replace(', options', '');
+    }
     fs.appendFileSync(mdName, "\n`" + signature + "`\n", 'binary');
-    itemObj.requiredProperties = [];
+
+    // parse properties, including required and static
+    itemObj.properties = [];
     itemObj.staticProperties = {};
     var log = false;
-    $thing.find('tbody').first().find('tr').each(function(i, el) {
+    $actionEl.find('tbody').first().find('tr').each(function(i, el) {
       var row = $(el);
       if (row.find('td').length === 4) {
         var propObj = {};
@@ -70,16 +93,16 @@ $("nav.sidebar > ul > li").each(function(i, el) {
           type: $(row.find('td')[1]).text(),
           required: $(row.find('td')[3]).text().toLowerCase().indexOf('true') !== -1
         };
-        itemObj.requiredProperties.push(propObj);
+        itemObj.properties.push(propObj);
         if (/Must be (\w+)$/.test($(row.find('td')[2]).text())) {
           itemObj.staticProperties[propObj.name] = /Must be (\w+)$/.exec($(row.find('td')[2]).text())[1];
         }
       }
     });
-    obj.items.push(itemObj);
+    categoryObj.items.push(itemObj);
   });
-  if (obj.items.length) {
-    items.push(obj);
+  if (categoryObj.items.length) {
+    categoryArray.push(categoryObj);
   }
 });
-console.log(JSON.stringify(items, null, 2));
+console.log(JSON.stringify(categoryArray, null, 2));
