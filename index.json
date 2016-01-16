@@ -1,0 +1,982 @@
+[
+  {
+    "name": "actions",
+    "items": [
+      {
+        "name": "listAllActions",
+        "path": "/v2/actions",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingAction",
+        "path": "/v2/actions/$ACTION_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "domains",
+    "items": [
+      {
+        "name": "listAllDomains",
+        "path": "/v2/domains",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "createNewDomain",
+        "path": "/v2/domains",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "ip_address",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingDomain",
+        "path": "/v2/domains/$DOMAIN_NAME",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteDomain",
+        "path": "/v2/domains/$DOMAIN_NAME",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "domainRecords",
+    "items": [
+      {
+        "name": "listAllDomainRecords",
+        "path": "/v2/domains/$DOMAIN_NAME/records",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "createNewDomainRecord",
+        "path": "/v2/domains/$DOMAIN_NAME/records",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "priority",
+            "type": "nullable number",
+            "required": false
+          },
+          {
+            "name": "port",
+            "type": "nullable number",
+            "required": false
+          },
+          {
+            "name": "weight",
+            "type": "nullable number",
+            "required": false
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingDomainRecord",
+        "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "updateDomainRecord",
+        "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
+        "method": "PUT",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "data",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "priority",
+            "type": "nullable number",
+            "required": false
+          },
+          {
+            "name": "port",
+            "type": "nullable number",
+            "required": false
+          },
+          {
+            "name": "weight",
+            "type": "nullable number",
+            "required": false
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteDomainRecord",
+        "path": "/v2/domains/$DOMAIN_NAME/records/$RECORD_ID",
+        "method": "DELETE",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "droplets",
+    "items": [
+      {
+        "name": "createNewDroplet",
+        "path": "/v2/droplets",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "name",
+            "type": "String",
+            "required": true
+          },
+          {
+            "name": "region",
+            "type": "String",
+            "required": true
+          },
+          {
+            "name": "size",
+            "type": "String",
+            "required": true
+          },
+          {
+            "name": "image",
+            "type": "number (if using an image ID), or String (if using a public image slug)",
+            "required": true
+          },
+          {
+            "name": "ssh_keys",
+            "type": "Array",
+            "required": false
+          },
+          {
+            "name": "backups",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "ipv6",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "private_networking",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "user_data",
+            "type": "String",
+            "required": false
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "createMultipleDroplets",
+        "path": "/v2/droplets",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "names",
+            "type": "Array",
+            "required": true
+          },
+          {
+            "name": "region",
+            "type": "String",
+            "required": true
+          },
+          {
+            "name": "size",
+            "type": "String",
+            "required": true
+          },
+          {
+            "name": "image",
+            "type": "number (if using an image ID), or String (if using a public image slug)",
+            "required": true
+          },
+          {
+            "name": "ssh_keys",
+            "type": "Array",
+            "required": false
+          },
+          {
+            "name": "backups",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "ipv6",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "private_networking",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "user_data",
+            "type": "String",
+            "required": false
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingDropletById",
+        "path": "/v2/droplets/$DROPLET_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllDroplets",
+        "path": "/v2/droplets",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllAvailableKernelsForDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/kernels",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listSnapshotsForDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/snapshots",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listBackupsForDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/backups",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listActionsForDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteDroplet",
+        "path": "/v2/droplets/$DROPLET_ID",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listNeighborsForDroplet",
+        "path": "/v2/droplets/:id/neighbors",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllDropletNeighbors",
+        "path": "/v2/reports/droplet_neighbors",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listDropletUpgrades",
+        "path": "/v2/droplet_upgrades",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "dropletActions",
+    "items": [
+      {
+        "name": "enableBackups",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "enable_backups"
+        }
+      },
+      {
+        "name": "disableBackups",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "disable_backups"
+        }
+      },
+      {
+        "name": "rebootDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "reboot"
+        }
+      },
+      {
+        "name": "powerCycleDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "power_cycle"
+        }
+      },
+      {
+        "name": "shutdownDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "shutdown"
+        }
+      },
+      {
+        "name": "powerOffDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "power_off"
+        }
+      },
+      {
+        "name": "powerOnDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "power_on"
+        }
+      },
+      {
+        "name": "restoreDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "image",
+            "type": "string if an image slug. number if an image ID.",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "restore"
+        }
+      },
+      {
+        "name": "passwordResetDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "password_reset"
+        }
+      },
+      {
+        "name": "resizeDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "disk",
+            "type": "Boolean",
+            "required": false
+          },
+          {
+            "name": "size",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "resize"
+        }
+      },
+      {
+        "name": "rebuildDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "image",
+            "type": "string if an image slug. number if an image ID.",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "rebuild"
+        }
+      },
+      {
+        "name": "renameDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "rename"
+        }
+      },
+      {
+        "name": "changeKernel",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "kernel",
+            "type": "number",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "change_kernel"
+        }
+      },
+      {
+        "name": "enableIPv6",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "enable_ipv6"
+        }
+      },
+      {
+        "name": "enablePrivateNetworking",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "enable_private_networking"
+        }
+      },
+      {
+        "name": "snapshotDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "snapshot"
+        }
+      },
+      {
+        "name": "upgradeDroplet",
+        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "upgrade",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "upgrade": "upgrade"
+        }
+      },
+      {
+        "name": "retrieveDropletAction",
+        "path": "/v2/droplets/$DROPLET_ID/actions/$ACTION_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "images",
+    "items": [
+      {
+        "name": "listAllImages",
+        "path": "/v2/images",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingImageById",
+        "path": "/v2/images/$IMAGE_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingImageBySlug",
+        "path": "/v2/images/$IMAGE_SLUG",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllActionsForImage",
+        "path": "/v2/images/$IMAGE_ID/actions",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "updateImage",
+        "path": "/v2/images/$IMAGE_ID",
+        "method": "PUT",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteImage",
+        "path": "/v2/images/$IMAGE_ID",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "imageActions",
+    "items": [
+      {
+        "name": "transferImage",
+        "path": "/v2/images/$IMAGE_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "region",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "transfer"
+        }
+      },
+      {
+        "name": "convertImageToSnapshot",
+        "path": "/v2/images/$IMAGE_ID/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "type",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {
+          "type": "convert"
+        }
+      },
+      {
+        "name": "retrieveExistingImageAction",
+        "path": "/v2/images/$IMAGE_ID/actions/$IMAGE_ACTION_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "sshKeys",
+    "items": [
+      {
+        "name": "listAllKeys",
+        "path": "/v2/account/keys",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "createNewKey",
+        "path": "/v2/account/keys",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "public_key",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingKey",
+        "path": "/v2/account/keys/$KEY_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "updateKey",
+        "path": "/v2/account/keys/$SSH_KEY_ID",
+        "method": "PUT",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [
+          {
+            "name": "name",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "destroyKey",
+        "path": "/v2/account/keys/$KEY_ID",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "regions",
+    "items": [
+      {
+        "name": "listAllRegions",
+        "path": "/v2/regions",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "sizes",
+    "items": [
+      {
+        "name": "listAllSizes",
+        "path": "/v2/sizes",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "floatingIPs",
+    "items": [
+      {
+        "name": "listAllFloatingIPs",
+        "path": "/v2/floating_ips",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "createNewFloatingIPAssignedToDroplet",
+        "path": "/v2/floating_ips",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "droplet_id",
+            "type": "int",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "createNewFloatingIPReservedToRegion",
+        "path": "/v2/floating_ips",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "requiredProperties": [
+          {
+            "name": "region",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingFloatingIP",
+        "path": "/v2/floating_ips/$FLOATING_IP_ADDR",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteFloatingIP",
+        "path": "/v2/floating_ips/$FLOATING_IP_ADDR",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "floatingIPActions",
+    "items": [
+      {
+        "name": "assignFloatingIPToDroplet",
+        "path": "/v2/floating_ips/$FLOATING_IP_ADDR/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "unassignFloatingIP",
+        "path": "/v2/floating_ips/$FLOATING_IP_ADDR/actions",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllActionsForFloatingIP",
+        "path": "/v2/floating_ips/$FLOATING_IP/actions",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "requiredProperties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveExistingFloatingIPAction",
+        "path": "/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID",
+        "method": "GET",
+        "requiredResourceIdCount": 2,
+        "requiredProperties": [],
+        "staticProperties": {}
+      }
+    ]
+  }
+]
