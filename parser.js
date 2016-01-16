@@ -32,7 +32,7 @@ $("nav.sidebar > ul > li").each(function(i, el) { // for each category in the si
       items: [{
         name: "getUserInformation",
         path: "/v2/account",
-        method: "GET"
+        method: "GET",
         requiredResourceIdCount: 0,
         properties: [],
         staticProperties: {}
