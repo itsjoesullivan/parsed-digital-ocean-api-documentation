@@ -1,5 +1,18 @@
 [
   {
+    "name": "account",
+    "items": [
+      {
+        "name": "getUserInformation",
+        "path": "/v2/account",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "properties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
     "name": "actions",
     "items": [
       {
