@@ -27,6 +27,20 @@ $("nav.sidebar > ul > li").each(function(i, el) { // for each category in the si
 
   // this item isn't parsable :(
   if (categoryObj.name === "account") {
+    categoryArray.push({
+      name: "account",
+      items: [{
+        name: "getUserInformation",
+        path: "/v2/account",
+        method: "GET"
+        requiredResourceIdCount: 0,
+        properties: [],
+        staticProperties: {}
+      }]
+    });
+    fs.appendFileSync(mdName, "\n###" + "account" + "\n", 'binary');
+    fs.appendFileSync(mdName, "- [" + "getUserInformation" + "](" + "https://developers.digitalocean.com/documentation/v2/#get-user-information" + ")\n", 'binary');
+    fs.appendFileSync(mdName, "\n`" + "api.account.getUserInformation" + "`\n", 'binary');
     return;
   }
 
