@@ -113,6 +113,13 @@ $("nav.sidebar > ul > li").each(function(i, el) { // for each category in the si
         }
       }
     });
+    if (itemObj.name === "assignFloatingIPToDroplet") {
+      // assignFloatingIPToDroplet documentation is odd
+      itemObj.staticProperties["type"] = "assign";
+    } else if (itemObj.name === "unassignFloatingIP") {
+      // assignFloatingIPToDroplet documentation is odd
+      itemObj.staticProperties["type"] = "unassign";
+    }
     categoryObj.items.push(itemObj);
   });
   if (categoryObj.items.length) {
