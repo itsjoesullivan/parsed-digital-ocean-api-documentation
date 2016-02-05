@@ -964,7 +964,9 @@
         "method": "POST",
         "requiredResourceIdCount": 1,
         "properties": [],
-        "staticProperties": {}
+        "staticProperties": {
+          "type": "assign"
+        }
       },
       {
         "name": "unassignFloatingIP",
@@ -972,7 +974,9 @@
         "method": "POST",
         "requiredResourceIdCount": 1,
         "properties": [],
-        "staticProperties": {}
+        "staticProperties": {
+          "type": "unassign"
+        }
       },
       {
         "name": "listAllActionsForFloatingIP",

@@ -4,5 +4,9 @@
   "description": "",
   "main": "index.json",
   "author": "itsjoesullivan",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "cheerio": "^0.19.0",
+    "to-camel-case": "^0.2.1"
+  }
 }
