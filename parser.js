@@ -5,7 +5,7 @@ var cheerio = require('cheerio');
 var fs = require('fs');
 var camel = require('to-camel-case');
 
-var $ = cheerio.load(fs.readFileSync('./12-15-2016.html', 'binary'));
+var $ = cheerio.load(fs.readFileSync('./04-19-2016.html', 'binary'));
 
 // also write documentation at this time
 var mdName = __dirname + '/../digital-ocean-api-v2/methods.md'

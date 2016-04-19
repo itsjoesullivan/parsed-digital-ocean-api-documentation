@@ -316,6 +316,14 @@
         "staticProperties": {}
       },
       {
+        "name": "listingDropletsByTag",
+        "path": "/v2/droplets?tag_name=$TAG_NAME",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
         "name": "listAllAvailableKernelsForDroplet",
         "path": "/v2/droplets/$DROPLET_ID/kernels",
         "method": "GET",
@@ -356,6 +364,14 @@
         "staticProperties": {}
       },
       {
+        "name": "deletingDropletsByTag",
+        "path": "/v2/droplets?tag_name=$TAG_NAME",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
         "name": "listNeighborsForDroplet",
         "path": "/v2/droplets/:id/neighbors",
         "method": "GET",
@@ -366,14 +382,6 @@
       {
         "name": "listAllDropletNeighbors",
         "path": "/v2/reports/droplet_neighbors",
-        "method": "GET",
-        "requiredResourceIdCount": 0,
-        "properties": [],
-        "staticProperties": {}
-      },
-      {
-        "name": "listDropletUpgrades",
-        "path": "/v2/droplet_upgrades",
         "method": "GET",
         "requiredResourceIdCount": 0,
         "properties": [],
@@ -676,20 +684,12 @@
         }
       },
       {
-        "name": "upgradeDroplet",
-        "path": "/v2/droplets/$DROPLET_ID/actions",
+        "name": "actingOnTaggedDroplets",
+        "path": "/v2/droplets/actions?tag_name=$TAG_NAME",
         "method": "POST",
         "requiredResourceIdCount": 1,
-        "properties": [
-          {
-            "name": "upgrade",
-            "type": "string",
-            "required": true
-          }
-        ],
-        "staticProperties": {
-          "upgrade": "upgrade"
-        }
+        "properties": [],
+        "staticProperties": {}
       },
       {
         "name": "retrieveDropletAction",
@@ -713,6 +713,14 @@
         "staticProperties": {}
       },
       {
+        "name": "listAllActionsForImage",
+        "path": "/v2/images/$IMAGE_ID/actions",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
         "name": "retrieveExistingImageById",
         "path": "/v2/images/$IMAGE_ID",
         "method": "GET",
@@ -723,14 +731,6 @@
       {
         "name": "retrieveExistingImageBySlug",
         "path": "/v2/images/$IMAGE_SLUG",
-        "method": "GET",
-        "requiredResourceIdCount": 1,
-        "properties": [],
-        "staticProperties": {}
-      },
-      {
-        "name": "listAllActionsForImage",
-        "path": "/v2/images/$IMAGE_ID/actions",
         "method": "GET",
         "requiredResourceIdCount": 1,
         "properties": [],
@@ -991,6 +991,67 @@
         "path": "/v2/floating_ips/$FLOATING_IP/actions/$ACTION_ID",
         "method": "GET",
         "requiredResourceIdCount": 2,
+        "properties": [],
+        "staticProperties": {}
+      }
+    ]
+  },
+  {
+    "name": "tags",
+    "items": [
+      {
+        "name": "createNewTag",
+        "path": "/v2/tags",
+        "method": "POST",
+        "requiredResourceIdCount": 0,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "retrieveTag",
+        "path": "/v2/tags/$TAG_NAME",
+        "method": "GET",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "listAllTags",
+        "path": "/v2/tags",
+        "method": "GET",
+        "requiredResourceIdCount": 0,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "updateTag",
+        "path": "/v2/tags/$TAG_NAME",
+        "method": "PUT",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "tagResource",
+        "path": "/v2/tags/$TAG_NAME/resources",
+        "method": "POST",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "untagResource",
+        "path": "/v2/tags/$TAG_NAME/resources",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
+        "properties": [],
+        "staticProperties": {}
+      },
+      {
+        "name": "deleteTag",
+        "path": "/v2/tags/$TAG_NAME",
+        "method": "DELETE",
+        "requiredResourceIdCount": 1,
         "properties": [],
         "staticProperties": {}
       }
