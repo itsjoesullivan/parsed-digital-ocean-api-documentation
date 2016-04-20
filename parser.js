@@ -68,6 +68,10 @@ $("nav.sidebar > ul > li").each(function(i, el) { // for each category in the si
       path: path,
       method: method
     };
+    if (/tag/i.test(itemObj.name)) {
+      itemObj.name = itemObj.name.replace(/listing/, 'list');
+      itemObj.name = itemObj.name.replace(/acting/, 'act');
+    }
     if (itemObj.name === "deleteFloatingIPs") { // one-off for this typo
       itemObj.name = "deleteFloatingIP";
     }
