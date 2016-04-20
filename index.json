@@ -316,7 +316,7 @@
         "staticProperties": {}
       },
       {
-        "name": "listingDropletsByTag",
+        "name": "listDropletsByTag",
         "path": "/v2/droplets?tag_name=$TAG_NAME",
         "method": "GET",
         "requiredResourceIdCount": 1,
@@ -684,7 +684,7 @@
         }
       },
       {
-        "name": "actingOnTaggedDroplets",
+        "name": "actOnTaggedDroplets",
         "path": "/v2/droplets/actions?tag_name=$TAG_NAME",
         "method": "POST",
         "requiredResourceIdCount": 1,
